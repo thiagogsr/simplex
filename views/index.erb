@@ -3,14 +3,14 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="variables_count">Número de Variáveis</label>
-        <input type="number" id="variables_count" name="variables_count" class="form-control" autofocus>
+        <input type="number" id="variables_count" name="variables_count" class="form-control" data-variables-count autofocus>
       </div>
     </div>
 
     <div class="col-md-6">
       <div class="form-group">
         <label for="restrictions_count">Número de Restrições</label>
-        <input type="number" id="restrictions_count" name="restrictions_count" class="form-control">
+        <input type="number" id="restrictions_count" name="restrictions_count" class="form-control" data-restrictions-count>
       </div>
     </div>
   </div>
@@ -22,10 +22,15 @@
     <div class="row">
       <div class="col-md-1 variable-field">
         <div class="form-group">
-          <input type="number" name="variables[]" class="form-control" placeholder="x₁">
+          <input type="number" name="variables[]" data-variable="true" class="form-control" placeholder="x₁">
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="formule-panel hide text-center well">
+    <div class="formule">Z = <span class="formule-variables"></span></div>
+    <div class="restrictions"></div>
   </div>
 
   <button type="submit" class="btn btn-primary">Enviar</button>
