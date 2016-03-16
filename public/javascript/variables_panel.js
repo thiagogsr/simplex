@@ -6,7 +6,7 @@
       subscript = ['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'],
       $variablesPanel = $('.variables-panel'),
       $variablesCount = $('[data-variables-count]'),
-      variableFieldClass = '.variable-field',
+      variableFieldClass = '[data-variable-field]',
       variableFieldMarkup = $variablesPanel.find(variableFieldClass).first().clone();
 
   fn.init = function() {
