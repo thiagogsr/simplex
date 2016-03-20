@@ -1,0 +1,29 @@
+<hr />
+
+<p class="text-center"><strong><%= "Maximizar #{@simplex.z.incognita.gsub(/\-/, '')} = #{@simplex.z.formule} sujeito a:" %></strong></p>
+<% @simplex.restrictions.each do |restriction| %>
+  <p class="text-center"><%= "#{restriction.formule} ≤ #{fraction_for(restriction.value)}" %></p>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= erb :table, locals: { table: @simplex.original_table } %>
+  </div>
+</div>
+
+<% @simplex.steps.each do |step| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p class="text-center">
+        <strong><%= step.join %></strong> entra e <strong><%= step.left %></strong> sai
+      </p>
+      <%= erb :table, locals: { table: step.table } %>
+    </div>
+  </div>
+<% end %>
+
+<% @simplex.variables.each do |incognita, value| %>
+  <p class="text-center"><%= "#{incognita} = #{fraction_for value}" %></p>
+<% end %>
+
+<p class="text-center"><%= "#{@simplex.z.incognita.gsub(/\-/, '')} = #{fraction_for(@simplex.z.value * -1)}" %></strong></p>

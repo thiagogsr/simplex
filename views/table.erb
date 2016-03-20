@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <% table.shift.each do |header| %>
+        <th class="text-center"><%= header %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% table.each do |restriction| %>
+      <tr>
+        <td class="text-right"><strong><%= restriction.incognita %></strong></td>
+        <% restriction.all_variables.each do |variable| %>
+          <td class="text-center"><%= fraction_for variable %></td>
+        <% end %>
+        <td class="text-center"><%= fraction_for restriction.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
