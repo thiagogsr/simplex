@@ -13,30 +13,6 @@
     $variablesCount.on('change', this._updateVariables.bind(this));
   };
 
-  fn._bindVariable = function() {
-    var self = this;
-
-    $('[data-variable]').on('change', function() {
-      var variablesCount = parseInt($variablesCount.val()),
-          formuleVariables = '';
-
-      for (var i = 1; i <= variablesCount; i++) {
-        if (i > 1) {
-          formuleVariables += " + ";
-        }
-        formuleVariables += ($($('[data-variable]').get(i - 1)).val() || '0') + self._incognitaFor(i);
-      }
-
-      $('.formule-variables').text(formuleVariables);
-
-      if (variablesCount > 0) {
-        $('.formule-panel').removeClass('hide');
-      } else {
-        $('.formule-panel').addClass('hide');
-      }
-    });
-  };
-
   fn._updateVariables = function(e) {
     var count = parseInt($variablesCount.val()),
         currentVariables = $variablesPanel.find(variableFieldClass).size(),
@@ -55,7 +31,6 @@
     }
 
     if (count > 0) {
-      this._bindVariable();
       $variablesPanel.removeClass('hide');
     } else {
       $variablesPanel.addClass('hide');
