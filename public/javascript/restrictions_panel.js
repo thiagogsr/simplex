@@ -47,7 +47,7 @@
         var coefficient = document.createElement('input');
         coefficient.className = 'form-control';
         coefficient.placeholder = this._incognitaFor(c + 1);
-        coefficient.type = 'number';
+        coefficient.type = 'tel';
         coefficient.name = 'restrictions[' + i + '][]';
         coefficientInput.appendChild(coefficient);
         coefficientGroup.appendChild(coefficientInput);
