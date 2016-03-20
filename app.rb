@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'pry'
 
 Dir[File.expand_path('../helpers/*.rb', __FILE__)].each { |f| require f }
 Dir[File.expand_path('../models/*.rb', __FILE__)].each { |f| require f }
